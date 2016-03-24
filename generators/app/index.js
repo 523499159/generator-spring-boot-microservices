@@ -93,6 +93,7 @@ MicroserviceGenerator.prototype.app = function app() {
     var resourceConfigDir = resourceDir + 'src/main/resources/';
     var resourceDirTemplate = serviceDirTemplate + 'src/main/resources/';
     var resourceConfigDirTemplate = resourceDirTemplate + 'config/';
+    var commonFileDir = 'common/';
 
     // Resource
     this.template(resourceDirTemplate + 'application.properties', resourceDir  + 'application.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
@@ -108,10 +109,12 @@ MicroserviceGenerator.prototype.app = function app() {
     // this.template(testDirTemplate + 'core/package-info.java', testDir + 'core/package-info.java', this, {});
 
     // Project
-    this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(serviceDirTemplate + '.gitignore', serviceDir + '.gitignore', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(serviceDirTemplate + 'mvnw', serviceDir + 'mvnw', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(serviceDirTemplate + 'mvnw.cmd', serviceDir + 'mvnw.cmd', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 
-
-
+    // Common files for every project
+    this.template(commonFileDir + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 
     // ----------------------------
     // Micro service starter MAIN

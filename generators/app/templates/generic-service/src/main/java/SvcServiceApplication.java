@@ -6,9 +6,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class SvcBServiceApplication {
+public class SvcServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SvcBServiceApplication.class, args);
+        SpringApplication.run(SvcServiceApplication.class, args);
     }
 }

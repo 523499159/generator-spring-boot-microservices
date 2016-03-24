@@ -9,7 +9,7 @@ import com.josedab.example.ZuulProxyClientApplication;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = ZuulProxyClientApplication.class)
-public class SocialProfileClientApplicationTests {
+public class ZuulProxyClientApplicationTests {
 
 	@Test
 	public void contextLoads() {
