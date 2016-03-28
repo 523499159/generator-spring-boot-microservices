@@ -1,0 +1,33 @@
+{
+  "name": "generator-spring-boot-microservices",
+  "version": "0.0.1",
+  "description": "Generator for Microservices with Maven + Spring Boot + Netflix OSS + Twitter OSS",
+  "keywords": [
+    "yeoman-generator",
+    "Java",
+    "Spring",
+    "Spring cloud",
+    "Microservice",
+    "Netflix OSS",
+    "Twitter OSS"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests added yet\" && exit 1"
+  },
+  "author": "Jose David Baena",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josedab/generator-spring-boot-microservices"
+  },
+  "bugs": {
+    "url": "https://github.com/josedab/generator-spring-boot-microservices/issues"
+  },
+  "homepage": "https://github.com/josedab/generator-spring-boot-microservices",
+  "dependencies": {
+    "chalk": "1.x.x",
+    "mkdirp": "0.5.x",
+    "yo": "1.7.0"
+  }
+}
