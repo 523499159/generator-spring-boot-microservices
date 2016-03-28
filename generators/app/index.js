@@ -98,7 +98,7 @@ MicroserviceGenerator.prototype.app = function app() {
     // Resource
     this.template(resourceDirTemplate + 'application.properties', resourceDir  + 'application.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
     this.template(resourceConfigDirTemplate + 'eureka-service.properties', resourceConfigDir  + 'eureka-service.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
-    this.template(resourceConfigDirTemplate + 'zipkin-service.properties', resourceConfigDir  + 'zipkin-service.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    // this.template(resourceConfigDirTemplate + 'zipkin-service.properties', resourceConfigDir  + 'zipkin-service.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
     this.template(resourceConfigDirTemplate + 'zuul-service.properties', resourceConfigDir  + 'zuul-service.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 
     // Java
@@ -109,12 +109,12 @@ MicroserviceGenerator.prototype.app = function app() {
     // this.template(testDirTemplate + 'core/package-info.java', testDir + 'core/package-info.java', this, {});
 
     // Project
-    this.template(serviceDirTemplate + '.gitignore', serviceDir + '.gitignore', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
-    this.template(serviceDirTemplate + 'mvnw', serviceDir + 'mvnw', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
-    this.template(serviceDirTemplate + 'mvnw.cmd', serviceDir + 'mvnw.cmd', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + '.gitignore', serviceDir + '.gitignore', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw', serviceDir + 'mvnw', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw.cmd', serviceDir + 'mvnw.cmd', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 
     // Common files for every project
-    this.template(commonFileDir + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 
     // ----------------------------
     // Micro service starter MAIN

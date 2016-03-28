@@ -28,6 +28,6 @@
   "dependencies": {
     "chalk": "1.x.x",
     "mkdirp": "0.5.x",
-    "yo": "1.7.0"
+    "yeoman-generator": "^0.20.2"
   }
 }
