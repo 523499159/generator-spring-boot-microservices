@@ -150,7 +150,7 @@ MicroserviceGenerator.prototype.eurekaService = function eurekaService() {
     this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 };
 
-MicroserviceGenerator.prototype.zuulService = function eurekaService() {
+MicroserviceGenerator.prototype.zuulService = function zuulService() {
     var packageFolder = this.packageName.replace(/\./g, '/');
 
     var serviceDir = 'zuul-service/';
@@ -177,6 +177,33 @@ MicroserviceGenerator.prototype.zuulService = function eurekaService() {
     // Common files for every project
     this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 };
+
+MicroserviceGenerator.prototype.zipkinServer= function zipkinServer() {
+    var packageFolder = this.packageName.replace(/\./g, '/');
+
+    var serviceDir = 'zipkin-server/';
+    var serviceDirTemplate = 'zipkin-server/';
+    var javaDir = serviceDir + 'src/main/java/' + packageFolder + '/';
+    var javaDirTemplate = serviceDirTemplate + 'src/main/java/';
+    var resourceDir = serviceDir + 'src/main/resources/';
+    var resourceDirTemplate = serviceDirTemplate + 'src/main/resources/';
+    var commonFileDir = 'common/';
+
+    // Resource
+    this.template(resourceDirTemplate + 'bootstrap.properties', resourceDir  + 'bootstrap.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+
+    // Java
+    this.template(javaDirTemplate + 'ZipkinServerApplication.java', javaDir + 'ZipkinServerApplication.java', this, {});
+
+    // Project
+    this.template(commonFileDir + '.gitignore', serviceDir + '.gitignore', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw', serviceDir + 'mvnw', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw.cmd', serviceDir + 'mvnw.cmd', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+
+    // Common files for every project
+    this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+};
+
 
 MicroserviceGenerator.prototype.projectfiles = function projectfiles() {
 
