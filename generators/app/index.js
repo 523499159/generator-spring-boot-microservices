@@ -204,6 +204,32 @@ MicroserviceGenerator.prototype.zipkinServer= function zipkinServer() {
     this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
 };
 
+MicroserviceGenerator.prototype.hystrixDashboard= function hystrixDashboard() {
+    var packageFolder = this.packageName.replace(/\./g, '/');
+
+    var serviceDir = 'hystrix-dashboard/';
+    var serviceDirTemplate = 'hystrix-dashboard/';
+    var javaDir = serviceDir + 'src/main/java/' + packageFolder + '/';
+    var javaDirTemplate = serviceDirTemplate + 'src/main/java/';
+    var resourceDir = serviceDir + 'src/main/resources/';
+    var resourceDirTemplate = serviceDirTemplate + 'src/main/resources/';
+    var commonFileDir = 'common/';
+
+    // Resource
+    this.template(resourceDirTemplate + 'bootstrap.properties', resourceDir  + 'bootstrap.properties', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+
+    // Java
+    this.template(javaDirTemplate + 'HystrixDashboardApplication.java', javaDir + 'HystrixDashboardApplication.java', this, {});
+
+    // Project
+    this.template(commonFileDir + '.gitignore', serviceDir + '.gitignore', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw', serviceDir + 'mvnw', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+    this.template(commonFileDir + 'mvnw.cmd', serviceDir + 'mvnw.cmd', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+
+    // Common files for every project
+    this.template(serviceDirTemplate + 'pom.xml', serviceDir + 'pom.xml', this, { 'interpolate': /<%=([\s\S]+?)%>/g });
+};
+
 
 MicroserviceGenerator.prototype.projectfiles = function projectfiles() {
 
